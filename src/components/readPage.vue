@@ -114,9 +114,9 @@
 
 <script>
 import { FileText, Play, Pause, RotateCcw, Minus, Plus } from 'lucide-vue-next'
-const pdfjsLib = require("pdfjs-dist");
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/2.15.349/pdf.worker.js`;
-sessionStorage.clear();
+import * as pdfjsLib from 'pdfjs-dist'
+pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/2.15.349/pdf.worker.js`
+sessionStorage.clear()
 
 export default {
   name: "readPage",
