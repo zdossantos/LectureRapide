@@ -168,7 +168,9 @@ export default {
       var file = event.target.files[0];
       if (!file) return;
       this.fileName = file.name;
+      this.hasText = false;
 
+      const self = this;
       var fileReader = new FileReader();
       fileReader.onload = function () {
         var typedarray = new Uint8Array(this.result);
@@ -183,11 +185,11 @@ export default {
           return Promise.all(pageTexts).then((values) => {
             sessionStorage.clear();
             sessionStorage.setItem("text", values.join(" "));
+            self.hasText = true;
           });
         });
       };
       fileReader.readAsArrayBuffer(file);
-      this.hasText = true;
     },
     togglePlay() {
       if (!this.hasText || this.wordPerMin === 0) return;
@@ -199,7 +201,7 @@ export default {
       this.pause = true;
       this.wordsToRead = "";
       this.wordsArray = [];
-      this.hasText = !!sessionStorage.getItem("text");
+      this.hasText = false;
     },
   },
   watch: {
