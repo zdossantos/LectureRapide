@@ -29,16 +29,18 @@
         <div class="space-y-2">
           <label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Fichier PDF</label>
           <label
-            class="flex items-center gap-3 w-full cursor-pointer rounded-lg border-2 border-dashed border-slate-300 px-4 py-3 hover:border-slate-400 hover:bg-slate-50 transition-colors"
+            for="fileInput"
+            class="relative flex items-center gap-3 w-full cursor-pointer rounded-lg border-2 border-dashed border-slate-300 px-4 py-3 hover:border-slate-400 hover:bg-slate-50 transition-colors"
           >
             <FileText class="h-5 w-5 text-slate-400 shrink-0" />
             <span class="text-sm text-slate-600 truncate">{{ fileName || 'Choisir un fichier PDF...' }}</span>
             <input
+              id="fileInput"
               type="file"
               ref="myFiles"
               accept="application/pdf"
               @change="previewFiles"
-              class="hidden"
+              class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
             />
           </label>
         </div>
