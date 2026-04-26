@@ -54,9 +54,4 @@ npm run lint
 
 ## Déploiement
 
-Le projet est configuré pour [Netlify](https://www.netlify.com/) via `netlify.toml`.  
-La commande de build est `npm run build` et le dossier publié est `dist/`.
-
----
-
-Développé par **Zacharie DOS SANTOS**
+Le projet est configuré pour [Netlify](https://www.netlify.com/)
