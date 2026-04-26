@@ -77,7 +77,7 @@
         <div class="flex items-center gap-3 pt-2">
           <button
             @click="togglePlay"
-            :disabled="!hasText && wordPerMin === 0"
+            :disabled="!hasText || wordPerMin === 0"
             class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl h-12 font-semibold text-white transition-all"
             :class="pause
               ? 'bg-slate-900 hover:bg-slate-800'
@@ -101,7 +101,7 @@
         <div v-if="wordsArray.length > 0" class="text-center text-xs text-slate-400">
           Mot {{ currentWord + 1 }} / {{ wordsArray.length }}
           <span class="mx-2">·</span>
-          ~{{ Math.ceil((wordsArray.length - currentWord) / wordPerMin) }} min restantes
+          ~{{ wordPerMin > 0 ? Math.ceil((wordsArray.length - currentWord) / wordPerMin) : '—' }} min restantes
         </div>
 
       </div>
@@ -190,7 +190,7 @@ export default {
       this.hasText = true;
     },
     togglePlay() {
-      if (this.wordPerMin === 0) return;
+      if (!this.hasText || this.wordPerMin === 0) return;
       this.pause = !this.pause;
     },
     resetReading() {
