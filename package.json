@@ -50,6 +50,9 @@
     "not dead",
     "not ie 11"
   ],
+  "engines": {
+    "node": ">=20.19"
+  },
   "description": "## Project setup ``` npm install ```",
   "main": "babel.config.js",
   "author": "Zacharie DOS SANTOS",
