@@ -54,4 +54,11 @@ npm run lint
 
 ## Déploiement
 
-Le projet est configuré pour [Netlify](https://www.netlify.com/)
+Le projet est configuré pour [Coolify](https://coolify.io/) via Docker.
+
+Un `Dockerfile` multi-stage est fourni :
+
+1. **Build** — Node 20 installe les dépendances et génère le dossier `dist/` avec `npm run build`.
+2. **Serve** — nginx:alpine sert les fichiers statiques avec une configuration SPA (toutes les routes redirigées vers `index.html`).
+
+Pour déployer sur Coolify, il suffit de pointer le dépôt sur votre instance Coolify — Coolify détecte automatiquement le `Dockerfile` et expose le port 80.
